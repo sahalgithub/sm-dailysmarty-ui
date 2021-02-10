@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 
-import *as actions from "../actions"
+import * as actions from '../actions';
 
-import Post from './posts';
+import Post from './post';
 
 class RecentPosts extends Component {
 
@@ -14,15 +14,15 @@ class RecentPosts extends Component {
 
     renderPosts = function() {
         const posts = this.props.recentPosts.map((post, index) => {
-            if(index < 3 ) {
-                
+            if(index < 3) {
                 return (
-                    <Post key={index} />
-                )
+                    <Post {...post} key={index}/>
+                )   
             }
-           
         })
+        return posts
     }
+
     render() {
         return (
             <div className="recent-posts">
@@ -31,12 +31,10 @@ class RecentPosts extends Component {
                     <ul className="recent-posts__posts">
                         {this.renderPosts()}
                     </ul>
-
                 </div>
-                
+
             </div>
         )
-          
     }
 }
 
@@ -45,4 +43,5 @@ function mapStateToProps(state) {
         recentPosts: state.posts.recentPosts
     }
 }
+
 export default connect(mapStateToProps, actions)(RecentPosts);
