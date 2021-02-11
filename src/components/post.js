@@ -17,7 +17,7 @@ class Post extends Component {
         return topics;
     }
     renderLinks() {
-        let links = this.props.post_links.map((post__links, index) => {
+        let links = this.props.post_links.map((post_link, index) => {
            return (
                 <div className="post-link" key={index}> 
                     <div className="post-link__box">
@@ -28,7 +28,7 @@ class Post extends Component {
                 </div>
             )
         }) 
-        return Links;
+        return links;
     }
 
 

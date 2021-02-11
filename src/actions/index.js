@@ -24,7 +24,7 @@ export function fetchPostsWithQuery(query, callback) {
             .then(response => {
                 
                 dispatch({
-                    type: SET_RECENT_POSTS,
+                    type: SET_RESULTS_POSTS,
                     payload: response.data.posts 
                 
                 })
